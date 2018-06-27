@@ -1,6 +1,6 @@
 #include <iostream>
-#include <string>
-#include <stdlib>
+#include <cstring>
+#include <malloc.h>
 
 using namespace std;
 
@@ -13,17 +13,25 @@ struct player {
 	double phone;//电话号码；
 };
 
-typedef struct player Node; 
+typedef struct player NodePlayer; 
 
 struct Seqlist {
-	Node elem[1000];
+	NodePlayer elem[1000];
 	int last;
 };
 
 typedef struct Seqlist* list;
-
+ 
 struct judges {
 	int sex;//性别
 	string name;//姓名
 	double phone;//电话号码 
 };
+
+typedef struct judges NodeJudges;
+struct Judges{
+	NodeJudges elem[10];
+	int last;
+}; 
+
+void menu(Seqlist* L);
