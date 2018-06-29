@@ -4,8 +4,8 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = main.o function.o
-LINKOBJ  = main.o function.o
+OBJ      = main.o function.o player.o judge.o
+LINKOBJ  = main.o function.o player.o judge.o
 LIBS     = -L"F:/Dev-Cpp/MinGW64/lib" -L"F:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"F:/Dev-Cpp/MinGW64/include" -I"F:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"F:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include"
 CXXINCS  = -I"F:/Dev-Cpp/MinGW64/include" -I"F:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"F:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"F:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++"
@@ -24,8 +24,14 @@ clean: clean-custom
 $(BIN): $(OBJ)
 	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
 
-main.o: main.cpp
-	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+main.o: main.c
+	$(CPP) -c main.c -o main.o $(CXXFLAGS)
 
-function.o: function.cpp
-	$(CPP) -c function.cpp -o function.o $(CXXFLAGS)
+function.o: function.c
+	$(CPP) -c function.c -o function.o $(CXXFLAGS)
+
+player.o: player.c
+	$(CPP) -c player.c -o player.o $(CXXFLAGS)
+
+judge.o: judge.c
+	$(CPP) -c judge.c -o judge.o $(CXXFLAGS)
