@@ -14,7 +14,7 @@ void load2(Judges* J)
 	int i=0, Sex;
 	double Phone;
 	char Name[20];
-	fp = fopen("judge.txt","r");
+	fp = fopen("judges.csv","r");
 	if(fp == NULL)
 		printf("The file can't be opened！\n");
 	else
@@ -36,16 +36,19 @@ void menu2(Judges* J)
 {
 	UI2();
 	load2(J);//加载文件中评委数据
-	int i;
+	int i,have = 1;
 	printf("选择要进行的功能：");
 	while(scanf("%d",&i)!=EOF)
 	{
+		have = 1;
 		switch(i)
 		{ 
 			case 1: Query(J);break;
 			case 2: Show(J);break;
-			case 0: break;
+			case 0: have = 0;break;
 		}
+		if(have == 0)
+			break;
 		printf("选择要进行的功能：");	
 	}
 }

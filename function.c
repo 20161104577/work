@@ -11,16 +11,19 @@ void UI()
 void Menu(Seqlist* L, Judges* J)
 {
 	UI();//加载菜单 
-	int i;
+	int i,have=1;
 	printf("选择要进行的功能：");
 	while(scanf("%d",&i)!=EOF)
 	{
 		switch(i)
 		{ 
-		//	case 1: menu1(L);break;
+			case 1: menu1(L,J);break;
 			case 2: menu2(J);break;
-			case 0: break;
-		}	
+			case 0: have=0;break;
+		}
+		if(have==0)
+			break;
+		UI();//加载菜单	
 	}
 }
 
